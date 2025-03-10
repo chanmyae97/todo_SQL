@@ -1,7 +1,6 @@
 import express from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import db from "../db.js";
 import prisma from "../prismaClient.js";
 
 const router = express.Router();
@@ -9,7 +8,6 @@ const router = express.Router();
 // Register a new user endpoint /auth/register
 router.post("/register", async (req, res) => {
   const { username, password } = req.body;
-
   //encrypt the password
 
   const hashedPassword = bcrypt.hashSync(password, 10);

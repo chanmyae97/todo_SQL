@@ -14,16 +14,16 @@ datasource db {
 }
 
 model User {
-  id           Int      @id @default(autoincremnet())
+  id           Int      @id @default(autoincrement())
   username     String    @unique
   password     String
-  todos        Todo[]
+  todos        Todo[] 
 }
 
 model Todo{
-  id           Int      @id @default(autoincremnet())      
+  id           Int      @id @default(autoincrement())      
   task         String 
   completed    Boolean  @default(false)
   userId       Int
-  user         User     @relation(field: [userId], references: [id])
+  user         User   @relation(fields: [userId], references: [id])
 }
